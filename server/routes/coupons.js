@@ -51,9 +51,10 @@ router.post('/near', function(req, res){
 router.get('/near/:long/:lat/:distance', function(req, res){
     var distance = 0;
     if(!req.params.distance){
-        distance = 1000/6371;
+        //distance = 1000/6371; //Km
+        distance = 25/3963.2; //Miles
     }else{
-        distance = req.params.distance/6371; 
+        distance = req.params.distance/3963.2; 
     }
 
     Coupon.find({'loc':
@@ -76,7 +77,7 @@ router.get('/near/:long/:lat/:distance', function(req, res){
 
 //Show Near Coupons w/ query parameters no distance
 router.get('/near/:long/:lat', function(req, res){
-    var distance = 1000/6371;
+    var distance = 25/3963.2; //Default to 25 miles
     var query = Coupon
                 .find({'loc':{
                     $near: [
