@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            table{
+                margin: 20px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: green;
+                padding: 20px;
+                text-align: left;
+            }
+            
+            tr, th, td{
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            tr{
+                background-color: rgba(0,200,0, .65);
+            }
+            
+            tr:hover{
+                background-color: rgba(0,200,0, 1);
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Application Programming Interface</h1>
+        </header>
+        <main>
+            <section>
+                <table>
+                   <thead>
+                       <th>HTTP Verb</th>
+                       <th>URI</th>
+                       <th>Description</th>
+                   </thead>
+                   <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/user</td>
+                            <td><a href="/api/user">List Users</a></td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/coupons</td>
+                            <td><a href="/api/coupons">List Coupons</a></td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/coupons/near/:long:/:lat/:distance</td>
+                            <td>
+                                <p><a href="/api/coupons/near/24/135/10">Coupons within 10 km of location</a></p>
+                                <p><a href="/api/coupons/near/24/135/50000">Coupons within 50,000 km location</a></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
