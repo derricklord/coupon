@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var User = require('./user');
 var ObjectId = mongoose.Schema.ObjectId;
 
-//mongoose.connect('localhost/bookSchema');
 
 var couponSchema = new mongoose.Schema({
   vendor:  String,
