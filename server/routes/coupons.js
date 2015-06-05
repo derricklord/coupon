@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var Coupon = require('../models/coupon');
 var User = require('../models/user');
 
+var config = require('../config');
+var util = require('../util/lib.js');
+
 
 
 //Show all Coupons
@@ -111,7 +114,7 @@ router.get('/:id', function(req, res) {
 });
 
 //Create a Coupon
-router.post('/', function(req, res) {
+router.post('/', util.ensureAuthenticated, function(req, res) {
   var coupon = new Coupon(req.body);
     
       coupon.created_on = Date.now();
@@ -128,7 +131,7 @@ router.post('/', function(req, res) {
 });
 
 // Update Coupon by id.
-router.put('/:id', function(req, res) {
+router.put('/:id', util.ensureAuthenticated, function(req, res) {
     
   Coupon.findById(req.params.id, function(err, coupon){
 
@@ -160,7 +163,7 @@ router.put('/:id', function(req, res) {
 });
 
 // Delete Coupon by id.
-router.delete('/:id', function(req, res) {
+router.delete('/:id', util.ensureAuthenticated, function(req, res) {
   Coupon.findById(req.params.id).remove(function(err) {
     res.sendStatus(200);
   });

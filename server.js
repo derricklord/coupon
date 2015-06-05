@@ -19,6 +19,7 @@ var User = require('./server/models/user');       //V1 API User Model
 //Load Custom Routes
 var couponRoutes = require('./server/routes/coupons');     // V1 API Coupon Routes
 var userRoutes = require('./server/routes/users');   // V1 API User Routes
+var authRoutes = require('./server/routes/auth');
 
 
 
@@ -40,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'client')));
         
 
 //Configure Routes
-//app.all('/api/*', util.requireAuthentication);
+app.use('/auth', authRoutes);
 app.use('/api/coupons', couponRoutes);
 app.use('/api/user', userRoutes);
 

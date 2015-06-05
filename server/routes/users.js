@@ -1,24 +1,29 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+
 var User = require('../models/user');
 
+var config = require('../config');
+var util = require('../util/lib.js');
+
+
 //Show all Users
-router.get('/', function(req, res){
+router.get('/', util.ensureAuthenticated, function(req, res){
 	User.find(function(err, user){
 		res.send(user);
 	});
 });
 
 // Find User by id.
-router.get('/:id', function(req, res) {
+router.get('/:id', util.ensureAuthenticated, function(req, res) {
   User.findById(req.params.id, function(err, user) {
     res.send({ user: user });
   });
 });
 
 //Create a User
-router.post('/', function(req, res) {
+router.post('/', util.ensureAuthenticated, function(req, res) {
   var user = new User(req.body);
   var address = {};
     if(req.body.postalCode){
@@ -46,14 +51,14 @@ router.post('/', function(req, res) {
 });
 
 // Update User by id.
-router.put('/:id', function(req, res) {
+router.put('/:id', util.ensureAuthenticated, function(req, res) {
   User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
     res.send({ user: req.body });
   });
 });
 
 // Delete User by id.
-router.delete('/:id', function(req, res) {
+router.delete('/:id', util.ensureAuthenticated, function(req, res) {
   User.findById(req.params.id).remove(function(err) {
     res.sendStatus(200);
   });
