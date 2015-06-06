@@ -14,10 +14,9 @@ var couponSchema = new mongoose.Schema({
   resource_url: String,
   loc: {
     type: [Number],  // [<longitude>, <latitude>]
-    index: '2d'      // create the geospatial index
+    index: '2dsphere'      // create the geospatial index
   }
 });
-
 
 module.exports = mongoose.model('Coupon', couponSchema);
 

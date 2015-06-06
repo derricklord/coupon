@@ -27,39 +27,7 @@ router.get('/', function(req, res){
 
 //Show Near Coupons
 router.post('/near', function(req, res){
-    var distance = 1000/6371;
-    var query = Coupon.find({'loc':{
-                    $near: [
-                            req.body.long, 
-                            req.body.lat
-                    ],
-                    $maxDistance: distance
-                    }
-                });
-    
-
-    query.exec(function(err, coupon){
-        if(err){
-            console.log(err);
-            res.send({error: err});
-        }else{
-            res.send({coupon: coupon});
-        }
-    });
-                
-                                
-});
-
-//Show Near Coupons w/ query parameters and distance
-router.get('/near/:long/:lat/:distance', function(req, res){
-    var distance = 0;
-    if(!req.params.distance){
-        //distance = 1000/6371; //Km
-        distance = 25/3963.2; //Miles
-    }else{
-        distance = req.params.distance/3963.2; 
-    }
-
+    var distance = 25/3963.192;
     Coupon.find({'loc':
                {
                 $near: [req.params.long,req.params.lat],
@@ -74,33 +42,77 @@ router.get('/near/:long/:lat/:distance', function(req, res){
                 }else{
                     res.send({coupon: coupon});
                 }
-    });               
-                                
+    });                                
 });
 
-//Show Near Coupons w/ query parameters no distance
-router.get('/near/:long/:lat', function(req, res){
-    var distance = 25/3963.2; //Default to 25 miles
-    var query = Coupon
-                .find({'loc':{
-                    $near: [
-                            req.params.long, 
-                            req.params.lat
-                    ],
-                    $maxDistance: distance
-                    }
-                }).populate('owner');
-    
 
-    query.exec(function(err, coupon){
-        if(err){
-            console.log(err);
-            res.send({error: err});
-        }else{
-            res.send({coupon: coupon});
-        }
-    });
-                
+/*
+Show Near Coupons w/ query parameters and distance
+    Parameters (All required):
+        longitude: float
+        latitude: float
+        distance (miles) : float 
+*/
+router.get('/near/:long/:lat/:distance', function(req, res){
+    var distance = parseFloat(req.params.distance)/0.000621371192237;
+    
+    console.log('distance in meters: ' + distance);
+    console.log('distance in miles: ' + distance*0.000621371192237);
+    console.log('longitude: ' + req.params.long);
+    Coupon.find({'loc':
+               {
+                $near: 
+                   {$geometry: 
+                    {
+                        type: "Point", 
+                        coordinates: [req.params.long,req.params.lat]
+                    }, 
+                    $maxDistance: distance
+                   }
+                }
+              })
+            .populate('owner')
+            .exec(function(err, coupon){
+                if(err){
+                    console.log(err);
+                    res.send({error: err});
+                }else{
+                    res.send({coupon: coupon});
+                }
+    });  
+});
+
+
+/*
+Show Near Coupons w/ query parameters no distance
+    Parameters (All required):
+        longitude: float
+        latitude: float
+        distance (miles) : float 
+*/
+router.get('/near/:long/:lat', function(req, res){
+    var distance = 25/0.000621371192237;
+    Coupon.find({'loc':
+               {
+                $near: 
+                   {$geometry: 
+                    {
+                        type: "Point", 
+                        coordinates: [req.params.long,req.params.lat]
+                    }, 
+                    $maxDistance: distance
+                   }
+                }
+              })
+            .populate('owner')
+            .exec(function(err, coupon){
+                if(err){
+                    console.log(err);
+                    res.send({error: err});
+                }else{
+                    res.send({coupon: coupon});
+                }
+    });        
                                 
 });
 
