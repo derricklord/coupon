@@ -18,6 +18,8 @@
     "toastr": "~2.1.1",
     "ionicons": "~2.0.1",
     "moment": "~2.10.3",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "satellizer": "~0.11.1",
+    "lumx": "~0.3.35"
   }
 }
