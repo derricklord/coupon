@@ -77,7 +77,7 @@ router.get('/near/:long/:lat/:distance', function(req, res){
                     console.log(err);
                     res.send({error: err});
                 }else{
-                    res.send({coupon: coupon});
+                    res.send({coupon: coupon, distance: distance});
                 }
     });  
 });
@@ -110,7 +110,7 @@ router.get('/near/:long/:lat', function(req, res){
                     console.log(err);
                     res.send({error: err});
                 }else{
-                    res.send({coupon: coupon});
+                    res.send({coupon: coupon, distance: distance});
                 }
     });        
                                 

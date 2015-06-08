@@ -17,7 +17,11 @@ var userSchema = new mongoose.Schema({
         city: String,
         state: String,
         postalCode: String
-  }
+  },
+  loc: {
+    type: [Number],  // [<longitude>, <latitude>]
+    index: '2dsphere'      // create the geospatial index
+  }    
 });
 
 userSchema.pre('save', function(next) {
