@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
 var mongoose = require('mongoose');
+var multer = require('multer');
 var path = require('path');
 var async = require('async');
 var request = require('request');

@@ -1,0 +1,12 @@
+body{
+    background-image: url('../img/hawaii.jpg');
+}
+
+header{
+    background-color: seagreen;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+      
+}
+

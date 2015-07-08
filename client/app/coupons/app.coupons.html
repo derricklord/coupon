@@ -1,0 +1,43 @@
+
+<div class="container">
+    <h1 class="heading">{{vm.title}}</h1>
+    <test></test>
+    <div class="row">
+                <div class="card animated bounceIn col-md-3" ng-repeat="coupon in vm.coupons">
+                    <div class="card-header">
+                        <h2>{{coupon.vendor}} <small>Great Savings!</small></h2>
+
+                        <ul class="actions">
+                            <li>
+                                <a href="">
+                                    <i class="md md-cached"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="md md-file-download"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="md md-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Change Date Range</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Change Graph Type</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body">
+                        <p>{{coupon.desc}}</p>
+                        <a href="{{coupon.resource_url}}" target="_blank" class="pull-right btn btn-success">Redeem</a>
+                    </div>
+        </div>
+</div>
