@@ -1,0 +1,22 @@
+<div class="container animated fadeInUp">
+  <div class="panel panel-default  ">
+    <div class="panel-heading">Coupons</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="list-group">
+              <li class="list-group-item" ng-repeat="coupon in coupons">
+                  <p>
+                    <i class="glyphicon glyphicon-map-marker green"></i>        
+                    <a href="{{coupon.resource_url}}">{{coupon.vendor}}</a>
+                  </p>
+                  <p>
+                      <small>Description: {{coupon.desc}}</small>
+                  </p>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

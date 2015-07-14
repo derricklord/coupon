@@ -7,6 +7,35 @@ var User = require('../models/user');
 var config = require('../config');
 var util = require('../util/lib.js');
 
+router.get('/list', function(req, res){
+    User.find(function(err, users){
+        res.send(users);
+    });
+});
+
+//Profile routes
+router.get('/profile', util.ensureAuthenticated, function(req, res){ 
+      console.log('Request Object: ' + req.user);
+      User.findById(req.user, function(err, user) {
+          res.send(user);
+      });
+});
+
+router.put('/profile', util.ensureAuthenticated, function(req, res){
+      User.findById(req.user, function(err, user) {
+        if (!user) {
+          return res.status(400).send({ message: 'User not found' });
+        }
+        user.displayName = req.body.displayName || user.displayName;
+        user.email = req.body.email || user.email;
+        user.picture = req.body.picture || user.picture;
+          
+        user.save(function(err) {  
+          res.status(200).end();
+        });
+      });
+});
+
 
 //Show all Users
 router.get('/', util.ensureAuthenticated, function(req, res){

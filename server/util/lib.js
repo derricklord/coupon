@@ -14,6 +14,7 @@ module.exports =
       return res.status(401).send({ message: 'Token has expired' });
     }
     req.user = payload.sub; 
+    console.log('Payload: ' + payload);
     next();
   },
   createToken: function(user) {

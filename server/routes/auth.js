@@ -66,7 +66,9 @@ router.post('/google', function(req, res){
     redirect_uri: req.body.redirectUri,
     grant_type: 'authorization_code'
   };
-
+    
+  
+  
   // Step 1. Exchange authorization code for access token.
   request.post(accessTokenUrl, { json: true, form: params }, function(err, response, token) {
     var accessToken = token.access_token;
@@ -74,7 +76,7 @@ router.post('/google', function(req, res){
 
   // Step 2. Retrieve profile information about the current user.
     request.get({ url: peopleApiUrl, headers: headers, json: true }, function(err, response, profile) {
-    
+        console.log(profile);
       // Step 3a. Link user accounts.
       //console.log('Header Information: ' + req.headers.authorization);
       if (req.headers.authorization) {
@@ -96,23 +98,9 @@ router.post('/google', function(req, res){
             user.isEnrolled = false;
              
               
-          if(profile.hd){
-              
-            if(profile.hd === 'ethompson.org' && profile.email === 'dlord@ethompson.org'){
-                user.isAdmin = true;
-                user.isEnrolled = true;
-            }else{
-                user.isAdmin = false;
-                user.isEnrolled = true;
-            }
-          }else{
-            if(profile.email === 'derrick.lord@gmail.com'){
-                user.isAdmin = true;
-                user.isEnrolled = true;
-            }else{
-                user.isEnrolled = false;
-            }
-          }
+              if(profile.hd){
+
+              }
               
               
             user.save(function() {
