@@ -76,7 +76,7 @@ router.post('/google', function(req, res){
 
   // Step 2. Retrieve profile information about the current user.
     request.get({ url: peopleApiUrl, headers: headers, json: true }, function(err, response, profile) {
-        console.log(profile);
+        //console.log(profile);
       // Step 3a. Link user accounts.
       //console.log('Header Information: ' + req.headers.authorization);
       if (req.headers.authorization) {

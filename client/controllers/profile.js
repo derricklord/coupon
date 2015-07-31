@@ -8,7 +8,7 @@ angular.module('MyApp')
     };
     
     $scope.loading = true;
-    $scope.map = { center: { latitude: 21.308, longitude: -157.860 }, zoom: 14, pan:true };
+    $scope.map = { center: { latitude: 21.308, longitude: -157.860 }, zoom: 13, pan:true };
     $scope.marker = {
           id: 0,
           coords: {
@@ -22,7 +22,8 @@ angular.module('MyApp')
           title:'',
     }
     
-    $scope.markers = [
+    $scope.markers = [];
+    /*
         {
             id: 1,
             icon: {url:'/img/mbta_map_logo.png'},
@@ -37,7 +38,7 @@ angular.module('MyApp')
             },
             title: 'Main Office',
         }
-    ];
+    ];*/
     
     $scope.windowOptions = {
         visible: true

@@ -15,7 +15,7 @@ router.get('/list', function(req, res){
 
 //Profile routes
 router.get('/profile', util.ensureAuthenticated, function(req, res){ 
-      console.log('Request Object: ' + req.user);
+      //console.log('Request Object: ' + req.user);
       User.findById(req.user, function(err, user) {
           res.send(user);
       });
@@ -93,6 +93,10 @@ router.delete('/:id', util.ensureAuthenticated, function(req, res) {
   });
 });
 
-
+router.get('/list', util.ensureAuthenticated, function(req, res){
+    User.find({}, function(err, users){
+        res.send(users);
+    });
+});
 
 module.exports = router;

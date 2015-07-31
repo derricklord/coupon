@@ -3,13 +3,13 @@ body {
   /*font-family: 'Lato', sans-serif;*/
   /*font-family: 'Alegreya Sans SC', sans-serif;*/
   font-family: 'Open Sans', sans-serif;
-  background-url: url('../img/background.jpg'); 
-  background: url('../img/background.jpg') no-repeat center center fixed;
+  /*background-url: url('../img/background2.jpg'); */
+  background: url('../img/background2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding-top: 65px;
+  padding-top: 60px;
 
 
 }
@@ -77,7 +77,7 @@ li {list-style-type: none;}
 .navbar-default .navbar-brand:hover {
   /*color: #fff;*/
   /*background-color: #000;*/
-    color:green;
+    color:yellow;
 }
 
 .navbar-brand {

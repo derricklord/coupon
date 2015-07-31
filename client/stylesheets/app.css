@@ -1,3 +1,9 @@
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 #mobilenav>.open>a:hover, #mobilenav>.open>a:focus {
   color: white;
@@ -44,19 +50,20 @@
 
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  color: #0f9d58;
+  /*color: #0f9d58;*/
+  color: yellow;
   background-color: transparent;
 }
 
 #map { 
-    height: 180px; 
+    height: 190px; 
     margin-top: 50px;
     margin-bottom: 50px;
     
 }
 .angular-google-map-container {
     height: 400px; 
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 .marker-label{
@@ -97,7 +104,7 @@
 }
 
 #main_view{
-	padding-top: 60px;
+  /*padding-top: 60px;*/
   margin-right:0px;
   width: 100%;
 }
@@ -143,7 +150,7 @@
 }
 
 #feature{
-  color: white;
+  /*color: white;*/
 }
 
 #callToAction{
@@ -171,7 +178,10 @@
   background-color: rgba(255,255,255, .80);
   min-height: 400px;
   padding-bottom: 20px;
-  padding-top:60px;
+  padding-top:30px;
+  border-top-style: solid;
+  border-top-color: black;
+  border-top-width: 1px;
 }
 
 

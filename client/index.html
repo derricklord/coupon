@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Myron B. Thompson Academy</title>
+  <title>Hawaii Qpons</title>
   <link href="favicon.png" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
   <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">-->
@@ -15,6 +15,7 @@
  
   <link href="stylesheets/styles.css" rel="stylesheet">
   <link href="stylesheets/app.css" rel="stylesheet">
+  <link href="stylesheets/coupon.css" rel="stylesheet">
   
   <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>  
   
@@ -32,22 +33,28 @@
      <li class="dropdown" dropdown on-toggle="toggled(open)">
       <a href class="dropdown-toggle" dropdown-toggle><i class="ion-navicon-round ion-xlg"></i></a>
       <ul class="dropdown-menu" role="menu">
-        <li><a href="/#/p/elementary">Elementary</a></li>
-        <li><a href="/#/p/secondary">Secondary</a></li> 
-        <li><a href="/#/p/curriculum">Curriculum</a></li>        
+       <!--
+        <li><a href="/#/p/elementary">Food</a></li>
+        <li><a href="/#/p/secondary">Fun</a></li> 
+        <li><a href="/#/p/curriculum">Finds</a></li>  
+              
         <li class="divider"></li>
         <li><a href="/#/p/tea">Extension Academy</a></li>
         <li><a href="/#/p/summer">Summer School</a></li>        
         <li class="divider"></li>
         <li><a href="/#/p/board">Governing Board</a></li>
+        -->
       </ul>
     </li>      
   </ul>
     
   <ul class="nav navbar-nav hidden-xs">
     <li><a href="/#/">Home</a></li>
-    <li><a ng-click="about()" href="">About</a></li> 
-    <li><a ng-click="whatsHappening()" href="">What's Happening</a></li>  
+    <!--
+    <li><a ng-click="about()" href="">Food</a></li> 
+    <li><a ng-click="whatsHappening()" href="">Fun</a></li>  
+    <li><a ng-click="" href="">Finds</a></li>
+
     <li class="dropdown" dropdown on-toggle="toggled(open)">
       <a href class="dropdown-toggle" dropdown-toggle>Programs</a>
       <ul class="dropdown-menu" role="menu">
@@ -61,6 +68,7 @@
         <li><a href="/#/p/board">Governing Board</a></li>
       </ul>
     </li> 
+    -->
   </ul>
   
   <ul class="nav navbar-nav pull-right">
@@ -134,12 +142,21 @@
 <script src="vendor/satellizer.js"></script>
 
 
+
+
 <!-- Application Code -->
+
 <script src="app.js"></script>
+
+<script src="services/account.js"></script>
+<script src="services/user.js"></script>
+<script src="services/pages.js"></script>
+<script src="services/coupons.js"></script>
 
 <script src="directives/passwordStrength.js"></script>
 <script src="directives/passwordMatch.js"></script>
 
+<script src="controllers/coupons.js"></script>
 <script src="controllers/login.js"></script>
 <script src="controllers/signup.js"></script>
 <script src="controllers/logout.js"></script>
@@ -152,12 +169,9 @@
 <script src="controllers/slug.js"></script>
 <script src="controllers/users.js"></script>
 <script src="controllers/navbar.js"></script>
-<script src="controllers/coupons.js"></script>
 
-<script src="services/account.js"></script>
-<script src="services/user.js"></script>
-<script src="services/pages.js"></script>
-<script src="services/coupons.js"></script>
+
+
 
 
 

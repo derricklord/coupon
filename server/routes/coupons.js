@@ -56,9 +56,9 @@ Show Near Coupons w/ query parameters and distance
 router.get('/near/:long/:lat/:distance', function(req, res){
     var distance = parseFloat(req.params.distance)/0.000621371192237;
     
-    console.log('distance in meters: ' + distance);
-    console.log('distance in miles: ' + distance*0.000621371192237);
-    console.log('longitude: ' + req.params.long);
+    //console.log('distance in meters: ' + distance);
+    //console.log('distance in miles: ' + distance*0.000621371192237);
+    //console.log('longitude: ' + req.params.long);
     Coupon.find({'loc':
                {
                 $near: 
